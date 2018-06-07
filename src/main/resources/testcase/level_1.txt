@@ -1,0 +1,49 @@
+___Создать class HUMAN 
+	__поля данных :
+_String name
+_String firstName
+_int age
+	__методы кл	:
+_Get()
+_Set(value)
+				
+				
+___Создать inteface IModeOfOperatio
+	__методы интерфейса :
+_void run();
+							
+___Создать class OperationReadImpl implements IModeOfOperation
+___Создать class OperationWriteImpl implements IModeOfOperation
+				
+___Создать abstract class Employee extends HUMAN
+	__поля данных : 
+_String salary
+_IModeOfOperation operations
+	__методы кл	:
+_booleav workRun(); - начать работать
+_booleav workStop(); - закончить работать
+				
+___Создать class DeveloperImpl implements Employee
+	__поля данных :  
+_String programmingLanguage
+	
+	__методы кл	: --должны выводить сообщения о начале и окончании работы
+_конструктор --с выводом сообщения о создании обьекта
+					
+___Создать class ManagerImpl implements Employee
+	__поля данных :  
+_String nameOfTheProject
+	
+	__методы кл	:--должны выводить сообщения о начале и окончании работы
+_конструктор --с выводом сообщения о создании обьекта
+			
+___Создать class Company
+	__поля данных : 
+_List<Employee> staffInTheState
+				
+	__методы кл
+_boolean recruit(Employee employees)
+_boolean layOff(Employee employees)
+_Get / Set
+
+___Создать class Main --который запускает процесс приема работника и процесс работы,--в нем должен быть применен наттерн фабричный метод и метод который определяет принять или уволить в сообтветствии от условий

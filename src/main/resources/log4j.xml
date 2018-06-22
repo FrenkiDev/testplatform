@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="errors" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="error.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%30c] - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="PrintHell" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="PrintHell.log"/>
+        <param name="MaxFileSize" value="100MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%30c] - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="PrintHellTest" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="PrintHellTest.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.TTCCLayout">
+            <param name="DateFormat" value="ABSOLUTE"/>
+            <param name="ContextPrinting" value="false"/>
+        </layout>
+    </appender>
+
+   <!-- <appender name="PrintHellWARN" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="PrintHellWARN.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.TTCCLayout">
+            <param name="DateFormat" value="ABSOLUTE"/>
+            <param name="ContextPrinting" value="false"/>
+        </layout>
+    </appender>-->
+
+    <logger name="PrintHell">
+        <level value="ERROR"/>
+        <appender-ref ref="PrintHell"/>
+    </logger>
+
+    <!--<logger name="PrintHellTest">
+        <level value="ERROR"/>
+        <appender-ref ref="PrintHellTest"/>
+    </logger>
+
+    <logger name="PrintHell_Warn">
+        <level value="WARN"/>
+        <appender-ref ref="PrintHellWARN"/>
+    </logger>-->
+
+    <!--<root>
+        <priority value="INFO"/>
+        <appender-ref ref="errors"/>
+    </root>-->
+
+</log4j:configuration>
